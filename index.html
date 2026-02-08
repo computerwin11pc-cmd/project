@@ -1,115 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
 <head>
 <meta charset="UTF-8">
-<title>Valentine?</title>
+<title>💕 Pro tebe</title>
 
 <style>
-    body {
-        margin: 0;
-        height: 100vh;
-        background: white;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        font-family: Arial, sans-serif;
-        overflow: hidden;
-    }
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffe6f0, #fff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
 
-    h1 {
-        font-size: 40px;
-        margin-bottom: 50px;
-    }
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    text-align: center;
+    max-width: 400px;
+}
 
-    button {
-        padding: 15px 35px;
-        font-size: 22px;
-        border: none;
-        border-radius: 12px;
-        cursor: pointer;
-        position: absolute;
-        transition: 0.3s ease;
-    }
+h1 {
+    margin-bottom: 30px;
+}
 
-    #yes {
-        background: #ff4d88;
-        color: white;
-        left: 45%;
-        top: 55%;
-    }
+a {
+    display: block;
+    text-decoration: none;
+    margin: 15px 0;
+    padding: 15px;
+    background: #ff4d88;
+    color: white;
+    border-radius: 12px;
+    font-size: 18px;
+    transition: 0.2s;
+}
 
-    #no {
-        background: #999;
-        color: white;
-        left: 55%;
-        top: 55%;
-    }
-
-    /* srdíčka */
-    .heart {
-        position: absolute;
-        color: #ff4d88;
-        font-size: 20px;
-        animation: floatUp 5s linear infinite;
-        opacity: 0.6;
-    }
-
-    @keyframes floatUp {
-        0% {
-            transform: translateY(0);
-            opacity: 0;
-        }
-        20% {
-            opacity: 0.6;
-        }
-        100% {
-            transform: translateY(-100vh);
-            opacity: 0;
-        }
-    }
+a:hover {
+    background: #e63b73;
+    transform: scale(1.05);
+}
 </style>
 </head>
 
 <body>
+<div class="container">
+    <h1>Vyber si 💕</h1>
 
-<h1>Will you be my Valentine? 💕</h1>
-
-<button id="yes" onclick="yesClick()">Yes</button>
-<button id="no">No</button>
-
-<script>
-    const noBtn = document.getElementById("no");
-
-    noBtn.addEventListener("mouseover", () => {
-        const x = Math.random() * (window.innerWidth - 100);
-        const y = Math.random() * (window.innerHeight - 50);
-
-        noBtn.style.left = x + "px";
-        noBtn.style.top = y + "px";
-    });
-
-    function yesClick() {
-        document.body.innerHTML = "<h1>Jeeeee 💖🥰😍</h1>";
-        for (let i = 0; i < 30; i++) createHeart();
-    }
-
-    function createHeart() {
-        const heart = document.createElement("div");
-        heart.classList.add("heart");
-        heart.innerHTML = "❤";
-        heart.style.left = Math.random() * 100 + "vw";
-        heart.style.bottom = "-20px";
-        heart.style.fontSize = (Math.random() * 20 + 15) + "px";
-        heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
-        document.body.appendChild(heart);
-
-        setTimeout(() => heart.remove(), 6000);
-    }
-
-    // srdíčka běží i na pozadí
-    setInterval(createHeart, 400);
-</script>
-
+    <a href="valentine.html">💌 Valentine</a>
+    <a href="surprise.html">🎁 Překvapení</a>
+</div>
 </body>
 </html>
