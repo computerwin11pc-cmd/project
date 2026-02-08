@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Valentine?</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+    }
+
+    h1 {
+        font-size: 40px;
+        margin-bottom: 50px;
+    }
+
+    button {
+        padding: 15px 35px;
+        font-size: 22px;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        position: absolute;
+        transition: 0.3s ease;
+    }
+
+    #yes {
+        background: #ff4d88;
+        color: white;
+        left: 45%;
+        top: 55%;
+    }
+
+    #no {
+        background: #999;
+        color: white;
+        left: 55%;
+        top: 55%;
+    }
+
+    /* srdíčka */
+    .heart {
+        position: absolute;
+        color: #ff4d88;
+        font-size: 20px;
+        animation: floatUp 5s linear infinite;
+        opacity: 0.6;
+    }
+
+    @keyframes floatUp {
+        0% {
+            transform: translateY(0);
+            opacity: 0;
+        }
+        20% {
+            opacity: 0.6;
+        }
+        100% {
+            transform: translateY(-100vh);
+            opacity: 0;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<h1>Will you be my Valentine? 💕</h1>
+
+<button id="yes" onclick="yesClick()">Yes</button>
+<button id="no">No</button>
+
+<script>
+    const noBtn = document.getElementById("no");
+
+    noBtn.addEventListener("mouseover", () => {
+        const x = Math.random() * (window.innerWidth - 100);
+        const y = Math.random() * (window.innerHeight - 50);
+
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+    });
+
+    function yesClick() {
+        document.body.innerHTML = "<h1>Yaaay! 💖🥰</h1>";
+        for (let i = 0; i < 30; i++) createHeart();
+    }
+
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.bottom = "-20px";
+        heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+        heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 6000);
+    }
+
+    // srdíčka běží i na pozadí
+    setInterval(createHeart, 400);
+</script>
+
+</body>
+</html>
